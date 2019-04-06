@@ -1,5 +1,7 @@
 package vehicles;
 
+import graphics.IClonable;
+
 /**
  * Class define engine specifications
  * 
@@ -8,7 +10,7 @@ package vehicles;
  * Anna Rogozin 323686477
  */
 
-public abstract class Engine {
+public abstract class Engine implements IClonable{
 	private double fuelConsumptionPerKM;
 	private double fuelTankCapacityOfEngine;
 

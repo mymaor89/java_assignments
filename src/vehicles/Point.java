@@ -1,11 +1,13 @@
 package vehicles;
 
+import graphics.IClonable;
+
 /**
  * Class define point
  * 
  * @author Maor Yatskan 301791380 Anna Rogozin 323686477
  */
-public class Point {
+public class Point implements IClonable{
 	private int x;
 	private int y;
 

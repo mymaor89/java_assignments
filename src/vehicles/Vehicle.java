@@ -12,13 +12,21 @@ enum Color {
 	RED, SILVER, GREEN, WHITE;
 }
 
-public abstract class Vehicle {
+public abstract class Vehicle implements IMoveable, IDrawable, IClonable {
 	private int id;
 	private String color;
 	private int numOfWheels;
-	private Location location;
 	private double kilometer;
-	private boolean lights;
+	protected int size;
+	protected int id;
+	protected Boolean lights;
+	protected Color col;
+	protected int wheels;
+	protected Location loc;
+	protected Orientation orien;
+	protected int fuelConsumption;
+	protected CityPanel pan;
+	protected BufferedImage img1, img2, img3, img4;
 
 	/**
 	 * Constructor

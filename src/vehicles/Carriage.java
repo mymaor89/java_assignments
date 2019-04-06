@@ -6,7 +6,7 @@ package vehicles;
  * @author Maor Yatskan 301791380 Anna Rogozin 323686477
  */
 public class Carriage extends Vehicle {
-	private String animal;
+	private PackAnimal animal;
 	private final static int SPEED = 1;
 
 	/**
