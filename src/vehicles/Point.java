@@ -60,4 +60,10 @@ public class Point implements IClonable{
 		return "Point is:(" + x + "," + y + ")";
 	}
 
+	@Override
+	public Object clone() {
+		return new Point(this.x, this.y);
+		}
+
+
 }

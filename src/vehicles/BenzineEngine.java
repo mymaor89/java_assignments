@@ -7,7 +7,7 @@ package vehicles;
  *
  */
 public class BenzineEngine extends Engine {
-	private final static int LITER_PER_KM  = 9;
+	private final static int LITER_PER_KM  = 2;
 
 	/**
 	 * 

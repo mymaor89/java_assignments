@@ -4,6 +4,20 @@ import graphics.IAnimal;
 import graphics.IClonable;
 
 public class PackAnimal implements IAnimal, IClonable {
+	private static final int MAX_ENERGY = 1000;
+	private String animal;
+	private int energyLevel;
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return new PackAnimal(animal,energyLevel);
+	}
+
+	public PackAnimal(String animal, int energyLevel) {
+		super();
+		this.animal = animal;
+		this.energyLevel = energyLevel;
+	}
 
 	@Override
 	public String getVehicleName() {
@@ -26,19 +40,18 @@ public class PackAnimal implements IAnimal, IClonable {
 	@Override
 	public boolean move(Point p) {
 		// TODO Auto-generated method stub
-		return false;
+			return false;
 	}
 
 	@Override
 	public String getAnimalName() {
-		// TODO Auto-generated method stub
-		return null;
+		return animal;
 	}
 
 	@Override
 	public boolean eat() {
-		// TODO Auto-generated method stub
-		return false;
+		this.energyLevel = MAX_ENERGY;
+		return true;
 	}
 
 }

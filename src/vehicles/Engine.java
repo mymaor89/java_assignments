@@ -11,6 +11,13 @@ import graphics.IClonable;
  */
 
 public abstract class Engine implements IClonable{
+	
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+
 	private double fuelConsumptionPerKM;
 	private double fuelTankCapacityOfEngine;
 
@@ -60,5 +67,18 @@ public abstract class Engine implements IClonable{
 		return "fuelConsumptionPerKM: " + fuelConsumptionPerKM + "\n" + "fuelTankCapacityOfEngine: "
 				+ fuelTankCapacityOfEngine + "\n";
 	}
+	@Override
+	public boolean equals(Object obj) {
+		try {
+		Engine other = (Engine) obj;
+		return this.fuelTankCapacityOfEngine ==  other.fuelTankCapacityOfEngine &&
+					this.fuelConsumptionPerKM == other.fuelConsumptionPerKM;
+		}
+		catch(ClassCastException e ){
+			return false;
+		}
+		
+	}
+
 
 }

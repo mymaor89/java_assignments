@@ -8,7 +8,7 @@ package vehicles;
  */
 
 public class SolarEngine extends Engine {
-	private final static int LITER_PER_KM  = 6;
+	private final static int LITER_PER_KM  = 1;
 
 	/**
 	 * 
@@ -25,5 +25,8 @@ public class SolarEngine extends Engine {
 	public String toString() {
 		return super.toString() + "type: " + "Solar\n";
 	}
+
+	
+	 
 
 }

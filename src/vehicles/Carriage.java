@@ -12,7 +12,7 @@ public class Carriage extends Vehicle {
 	/**
 	 * @param animal which animal carry carriage
 	 */
-	public Carriage(int id, String color, Location location, double kilometer, boolean lights, String animal) {
+	public Carriage(int id, String color, Location location, double kilometer, boolean lights, PackAnimal animal) {
 		super(id, color, 4, location, kilometer, lights);
 		this.animal = animal;
 	}
@@ -22,7 +22,7 @@ public class Carriage extends Vehicle {
 	 * string representation
 	 */
 	public String toString() {
-		return "Carriage@\n" + super.toString() + "animal: " + animal + "\n";
+		return "Carriage@\n" + super.toString() + "animal: " + animal.toString() + "\n";
 	}
 
 }

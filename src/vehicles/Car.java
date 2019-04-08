@@ -12,6 +12,7 @@ public class Car extends HasEngine {
 	private int numOfPassengers;
 	private final static int WHEELS = 4;
 	private final static int FUEL_TANK_CAPACITY = 40;
+	private final static int SPEED = 4;
 
 	/**
 	 * cars constructor
@@ -76,4 +77,6 @@ public class Car extends HasEngine {
 	protected int getDistance(Point dest) {
 		return getLocation().distance(dest);
 	}
+
+	
 }

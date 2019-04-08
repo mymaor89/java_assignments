@@ -185,7 +185,9 @@ public class MySystem {
 		lights = sc.nextInt() == 1;
 		System.out.println("Type animal of carriage: ");
 		animal = sc.next();
-		return new Carriage(id, c, location, kilometer, lights, animal);
+		System.out.println("Type Energy level: ");
+		int energyLevel = sc.nextInt();
+		return new Carriage(id, c, location, kilometer, lights, new PackAnimal(animal, energyLevel));
 	}
 
 	/**
