@@ -1,33 +1,51 @@
 package graphics;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
+import vehicles.Vehicle;
 
 public class CityFrame extends JFrame {
 
-	private static final int WIDTH = 1024;
-	private static final int HEIGHT = 700;
-	private static int panel_height = HEIGHT;
-	private static int panel_width = WIDTH;
-
-	// private CityPanel panel;
-	// private menuFile;
-	// private JMenu menuHelp;
-	// private JMenuItem exitItem,helpItem;
+	private static int button_panel_height = 40;
+	private static int button_panel_width = 800;
+	private static int road_panel_height = 600;
+	private static int road_panel_width = 800;
+	private static int city_panel_height = 680;
+	private static int city_panel_width = 800;
+	private static JButton addButton;
+	private static AddVehicleDialog addDialog;
+	private static Vehicle vehicle;
+	private static CityPanel panel;
 
 	public CityFrame(String string) {
 		super(string);
+		addDialog = new AddVehicleDialog(this,vehicle,panel);
+		addDialog.pack();
 	}
 
 	public static void main(String[] args) {
+		addButton = new JButton("Add Vehicle");
+		addButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				addDialog.setLocationRelativeTo(null);
+                addDialog.setVisible(true);
+			}
+		});
+		panel = new CityPanel(addButton);
 		CityFrame f = new CityFrame("City");
-		f.setSize(WIDTH, HEIGHT);
 		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		f.add(panel);
 		javax.swing.JMenu jMenuFile;
 		javax.swing.JMenu jMenuHelp;
 		javax.swing.JMenuBar jMenuBar1;
@@ -39,41 +57,29 @@ public class CityFrame extends JFrame {
 		jMenuItemHelp = new javax.swing.JMenuItem();
 		jMenuHelp = new javax.swing.JMenu();
 		jMenuFile.setText("File");
+		jMenuHelp.setText("Help");
 		jMenuItemExit.setText("Exit");
 		jMenuItemHelp.setText("Help");
 		jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				System.exit(0);
+				JOptionPane.showMessageDialog(null, "Home Work 2\n GUI");
 			}
 		});
 		jMenuItemHelp.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				System.exit(0);
+				JOptionPane.showMessageDialog(null, "Home Work 2\n GUI");
 			}
 		});
 		jMenuFile.add(jMenuItemExit);
 		jMenuHelp.add(jMenuItemHelp);
 		jMenuBar1.add(jMenuFile);
 		jMenuBar1.add(jMenuHelp);
-
 		f.setJMenuBar(jMenuBar1);
-		/*
-		 * JMenuBar bar = new JMenuBar(); JMenu menuFile = new JMenu("File"); JMenu
-		 * menuHelp = new JMenu("Help"); JMenuItem exitItem = new JMenu("Exit");
-		 * JMenuItem helpItem = new JMenu("Help");
-		 * 
-		 * exitItem.setActionCommand("Exit"); helpItem.setActionCommand("Help");
-		 * exitItem.addActionListener(new java.awt.event.ActionListener() { public void
-		 * actionPerformed(java.awt.event.ActionEvent evt) { System.exit(0); } });
-		 * menuFile.add(exitItem); menuHelp.add(helpItem); bar.add(menuFile);
-		 * bar.add(menuHelp); f.setJMenuBar(bar);
-		 */
 		f.setResizable(false);
-		CityPanel panel = new CityPanel(panel_width, panel_height);
-		f.add(panel);
-		f.pack();
+		f.setSize(new Dimension(city_panel_width,city_panel_height));
+		f.setMinimumSize(new Dimension(city_panel_width,city_panel_height));
+		f.setMaximumSize(new Dimension(city_panel_width,city_panel_height));
 		f.setVisible(true);
-
 	}
 
 }

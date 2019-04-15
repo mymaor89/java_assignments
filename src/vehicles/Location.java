@@ -8,18 +8,21 @@ import java.util.InputMismatchException;
  * @author Ana
  *
  */
-enum Orientation {
-	NORTH, WEST, EAST, SOUTH;
-}
 
 public class Location {
 	private Point point;
-	private String orientation;
+	private Orientation orientation;
 
 	public Location() {
 
 	}
+	public void setX(int x) {
+		this.point.setX(x);
+	}
 
+	public void setY(int y) {
+		this.point.setY(y);
+	}
 	/**
 	 * Constractor create an instance
 	 * 
@@ -31,10 +34,15 @@ public class Location {
 		try {
 			Orientation o = Orientation.valueOf(d.toUpperCase());
 			if (o != null)
-				this.orientation = d.toUpperCase();
+				this.orientation = o;
 		} catch (Exception e) {
 			throw new InputMismatchException();
 		}
+	}
+
+	public Location(Point point, Orientation orien) {
+		this.point = point;
+		this.orientation = orien;
 	}
 
 	/**
@@ -48,9 +56,9 @@ public class Location {
 	}
 
 	protected String getOrientation() {
-		return orientation;
+		return orientation.toString();
 	}
-
+	
 	protected Point getPoint() {
 		return point;
 	}
@@ -61,5 +69,12 @@ public class Location {
 	 */
 	public String toString() {
 		return "[point=" + point.toString() + ", orientation=" + orientation + "]\n";
+	}
+	public int getX() {
+		// TODO Auto-generated method stub
+		return point.getX();
+	}
+	public int getY() {
+		return point.getY();
 	}
 }

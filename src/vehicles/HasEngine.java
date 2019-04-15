@@ -1,4 +1,5 @@
 package vehicles;
+import graphics.RoadPanel;
 
 /**
  * Class giving information regarding fueling and vehicles that have engine
@@ -33,14 +34,21 @@ public abstract class HasEngine extends Vehicle {
 	 * @param minimumAge
 	 * @param currentFuelCapcity
 	 */
-	public HasEngine(int id, String color, int numOfWheels, Location location, double kilometer, boolean lights,
+	public HasEngine(String color, int numOfWheels,
+			Engine engine,int speed,RoadPanel roadPanel) {
+		super(color, numOfWheels,speed,roadPanel);
+		this.engine = engine;
+		this.currentFuelCapcity = 0;
+	}
+/*
+	public HasEngine(int id, String color, int wheels, Location location, double kilometer, boolean lights,
 			Engine engine, int minimumAge, double currentFuelCapcity) {
-		super(id, color, numOfWheels, location, kilometer, lights);
+		super(id, color, wheels, location, kilometer, lights);
 		this.engine = engine;
 		this.minimumAge = minimumAge;
 		this.currentFuelCapcity = currentFuelCapcity;
 	}
-
+*/
 	@Override
 	/**
 	 * Override function to string representation of variables

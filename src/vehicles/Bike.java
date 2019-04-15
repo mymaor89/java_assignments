@@ -1,5 +1,7 @@
 package vehicles;
 
+import graphics.RoadPanel;
+
 /**
  * Bike representation
  * 
@@ -7,6 +9,11 @@ package vehicles;
  */
 
 public class Bike extends Vehicle {
+	@Override
+	public String getVehicleName() {
+		return "Bike";
+	}
+
 	private int numOfGears;
 	private final static int SPEED = 2;
 	private final static int WHEELS = 2;
@@ -14,8 +21,17 @@ public class Bike extends Vehicle {
 	 * Constructor
 	 * @param numOfGears number of gears
 	 */
+	/*public Bike(int id, String color, Location location, double kilometer, boolean lights, int numOfGears,BackgroundPanel pan) {
+		super(id, color, WHEELS, location, kilometer, lights,SPEED,pan);
+		this.numOfGears = numOfGears;
+	}
+
 	public Bike(int id, String color, Location location, double kilometer, boolean lights, int numOfGears) {
 		super(id, color, WHEELS, location, kilometer, lights);
+		this.numOfGears = numOfGears;
+	}*/
+	public Bike(String color,int numOfGear,RoadPanel panel) {
+		super(color,WHEELS,SPEED,panel);
 		this.numOfGears = numOfGears;
 	}
 

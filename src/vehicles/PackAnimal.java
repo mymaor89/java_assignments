@@ -5,6 +5,7 @@ import graphics.IClonable;
 
 public class PackAnimal implements IAnimal, IClonable {
 	private static final int MAX_ENERGY = 1000;
+	private static final int ENERGY_REDUCED_PER_KM = 20;
 	private String animal;
 	private int energyLevel;
 	
@@ -33,14 +34,12 @@ public class PackAnimal implements IAnimal, IClonable {
 
 	@Override
 	public int getFuelConsumption() {
-		// TODO Auto-generated method stub
-		return 0;
+		return ENERGY_REDUCED_PER_KM;
 	}
 
 	@Override
 	public boolean move(Point p) {
-		// TODO Auto-generated method stub
-			return false;
+		return false;
 	}
 
 	@Override
