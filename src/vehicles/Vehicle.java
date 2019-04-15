@@ -1,5 +1,6 @@
 package vehicles;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -22,13 +23,12 @@ import graphics.RoadPanel;
 
 public abstract class Vehicle implements IMoveable, IDrawable, IClonable {
 	
-	private final static String[] types = {"solar car",
-			"benzine car", "bike","carriage"};
 	
 	final static int CAR_SEATS = 5;
 	final static int BIKE_SEATS = 1;
 	final static int CARRIAGE_SEATS = 2;
 	final static int FUEL = 0 ; 
+	final protected static int SIZE = 65;
 	public static int idOfVehicles = 1000;
 	
 	
@@ -47,7 +47,7 @@ public abstract class Vehicle implements IMoveable, IDrawable, IClonable {
 	protected RoadPanel pan;
 	protected BufferedImage img1, img2, img3, img4;
 	private final static int MINIMAL_AGE = 18;
-	
+	private boolean canMove = true;
 	
 	
 	public void setLoc(Location loc) {
@@ -93,9 +93,17 @@ public abstract class Vehicle implements IMoveable, IDrawable, IClonable {
 	}
 
 	@Override
-	public boolean move(Point p) {
-		return false;
-	}
+	public void move(Point p) {
+		
+		    if(canMove){
+		        try { Thread.sleep(100); }
+		        catch (InterruptedException e) { e.printStackTrace(); }
+		        this.drive(p);
+		    }
+		    pan.repaint();
+		}
+
+	
 
 
 
@@ -115,7 +123,7 @@ public abstract class Vehicle implements IMoveable, IDrawable, IClonable {
 	public BufferedImage getImg4() {
 		return img4;
 	}
-	protected int size;
+
 
 	/**
 	 * Constructor

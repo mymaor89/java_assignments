@@ -32,16 +32,9 @@ public class RoadPanel extends JPanel {
 		// add(bgPanel);
 		setVisible(true);
 		car = new Car("GREEN", EngineType.BENZINE, this);
-		int imageWidth = car.getImg1().getWidth();
-		int imageHeight = car.getImg1().getHeight();
-		Dimension imgSize = new Dimension(imageWidth, imageHeight);
-		Dimension boundary = new Dimension(65, 65);
-		Dimension newSize = getScaledDimension(imgSize, boundary);
-
-		MoveThread moveThread = new MoveThread(car, newSize, this);
-
-		Thread t = new Thread(moveThread);
-		t.start();
+		//MoveThread moveThread = new MoveThread(car, newSize, this);
+		//Thread t = new Thread(moveThread);
+		//t.start();
 	}
 
 	public static BufferedImage resize(BufferedImage img, int newW, int newH) {
@@ -54,20 +47,14 @@ public class RoadPanel extends JPanel {
 
 		return dimg;
 	}
-	@Override
-	public void paint(Graphics g) {
-		// TODO Auto-generated method stub
-		super.paint(g);
-		g.drawImage(image,0,0,this);
-		car.drawObject(g);
-	}
-	// public BackgroundPanel getBackgroundPanel() {
-	// return bgPanel;
-	// }
+
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-
+		g.drawImage(image,0,0,this);
+		if (car!= null) {
+			car.drawObject(g);
+		}
 	}
 
 	public static Dimension getScaledDimension(Dimension imgSize, Dimension boundary) {

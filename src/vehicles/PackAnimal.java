@@ -1,5 +1,7 @@
 package vehicles;
 
+import java.nio.channels.NotYetConnectedException;
+
 import graphics.IAnimal;
 import graphics.IClonable;
 
@@ -38,8 +40,8 @@ public class PackAnimal implements IAnimal, IClonable {
 	}
 
 	@Override
-	public boolean move(Point p) {
-		return false;
+	public void move(Point p) {
+		throw new UnsupportedOperationException("Not supported yet."); 
 	}
 
 	@Override

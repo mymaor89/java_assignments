@@ -55,8 +55,8 @@ public class Location {
 		return point.distance(p);
 	}
 
-	protected String getOrientation() {
-		return orientation.toString();
+	protected Orientation getOrientation() {
+		return orientation;
 	}
 	
 	protected Point getPoint() {
@@ -68,7 +68,7 @@ public class Location {
 	 * Override function to string representation of variables
 	 */
 	public String toString() {
-		return "[point=" + point.toString() + ", orientation=" + orientation + "]\n";
+		return "[point=" + point.toString() + ", orientation=" + orientation.toString() + "]\n";
 	}
 	public int getX() {
 		// TODO Auto-generated method stub

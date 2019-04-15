@@ -136,5 +136,23 @@ public class Car extends HasEngine {
 	public String getVehicleName() {
 		return "Car";
 	}
+	@Override
+	public void drawObject(Graphics g) {
+		if(loc.getOrientation() == Orientation.NORTH) //drives to right side
+	        g.drawImage(img1, loc.getPoint().getX(), loc.getPoint().getY(), SIZE, SIZE*2, pan);
+	    else if (loc.getOrientation() == Orientation.SOUTH)//drives to the south side
+	        g.drawImage(img2, loc.getPoint().getX(), loc.getPoint().getY(), SIZE, SIZE*2, pan);
+	    else if(loc.getOrientation() == Orientation.EAST){ //drives to the east side
+	        g.drawImage(img3, loc.getPoint().getX(), loc.getPoint().getY(), SIZE*2, SIZE, pan);}
+	    else if(loc.getOrientation() == Orientation.WEST) //drives to the west side
+	        g.drawImage(img4, loc.getPoint().getX(), loc.getPoint().getY(), SIZE*2, SIZE, pan);
+
+	}
+
+	@Override
+	public void move(Point p) {
+		throw new UnsupportedOperationException("Not supported yet."); 
+	}
+	
 
 }
